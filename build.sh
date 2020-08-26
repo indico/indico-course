@@ -11,6 +11,7 @@ npm i
 
 # Get Indico Docs
 git submodule init
+git submodule update
 
 # Copy images
 cp -R indico-user-docs/docs/assets src/course/en/images
@@ -26,5 +27,7 @@ python md_to_adapt.py indico-user-docs . \
     "Event Surveys" \
     "Other Features/Webcast/Recording"
 
+# Install adapt components
+npx adapt install
 # Build actual HTML
-npx grunt adapt build
+npx grunt build

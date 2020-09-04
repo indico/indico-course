@@ -1,0 +1,17 @@
+build-course:
+  image: python:alpine
+  only:
+    - tags
+  before_script:
+    - apk add nodejs npm build-base autoconf nasm git zip
+    - pip install -r requirements.txt
+    - npm i
+    - git config --file=.gitmodules submodule.indico-user-docs.url https://gitlab-ci-token:$CI_JOB_TOKEN@gitlab.cern.ch/indico/indico-user-docs-cern.git
+  script:
+    - ./build.sh
+    - cd indico-user-docs && export COURSE_HASH=$(git rev-parse --short HEAD) && cd ..
+    - cd build && zip indico-course-${COURSE_HASH}.zip *
+  artifacts:
+    paths:
+      - build/indico-course-*.zip
+    expire_in: 99 yrs

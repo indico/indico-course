@@ -39,3 +39,12 @@ jobs:
           user_email: indico-team@cern.ch
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
+
+      - name: Upload SCORM package to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: build/indico-course-*.zip
+          tag: ${{ github.ref }}
+          overwrite: true
+          file_glob: true

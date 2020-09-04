@@ -16,16 +16,8 @@ git submodule update
 # Copy images
 cp -R indico-user-docs/docs/assets src/course/en/images
 
-rm src/course/en/{articles,blocks,components,contentObjects}.json
 # Convert docs to adapt
-python md_to_adapt.py indico-user-docs . \
-    Categories \
-    Lectures \
-    Meetings \
-    Conferences \
-    "Room Booking"\
-    "Event Surveys" \
-    "Other Features/Webcast/Recording"
+python md_to_adapt.py --replace indico-user-docs .
 
 # Install adapt components
 npx adapt install

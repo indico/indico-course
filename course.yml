@@ -1,0 +1,221 @@
+Categories:
+  duration: 15 mins
+  quiz:
+    - body: |
+        Can one <em>create a new category</em> at the level of Indico entry point
+        <a href='https://indico.cern.ch/'>https://indico.cern.ch/</a>?
+      items:
+        - text: "Yes"
+        - text: "No"
+          correct: true
+      correction: |
+        That’s not right! One would have to click on the pencil icon in the toolbar next to the
+        <strong>Create Event<strong> button first.
+    - body: |
+        Can a category be <em>less restricted</em> than its parent category?
+      items:
+        - text: "Yes"
+          correct: true
+        - text: "No"
+      correction: |
+        That’s not right! Unless the category protection is set as <strong>Inherited</strong>, a category can be less
+        restricted than its parent category.
+    - body: |
+        Can an event within a category be <em>more restricted</em> than the category itself?
+      items:
+        - text: "Yes"
+          correct: true
+        - text: "No"
+      correction: |
+        That's not right! An event can be set as <strong>Protected</strong>, in which case it can be further restricted
+        with regards to the enclosing category.
+    - body: |
+        Can an event within a category be non-accessible by the category managers?
+      items:
+        - text: "Yes"
+        - text: "No"
+          correct: true
+      correction: |
+        That’s not right! Events within a category are always accessible to category managers.
+    - body: |
+        How do I personalize my category (description text, logo, material...)?
+      items:
+        - text: I edit it myself
+          correct: true
+        - text: I open a support ticket on ServiceNow
+      correction: |
+        No need for that! Category managers can personalize their categories from the category management page, so you
+        can do that yourself. Still do feel free to contact our support line if you have questions, however.
+Lectures:
+  duration: 15 mins
+Meetings:
+  duration: 20 mins
+  quiz:
+    - body: |
+        How do I decide whether my new event should be a Meeting?
+      items:
+        - text: The event is restricted, only the participants should be able to know its existence
+        - text: There are multiple contributions, speakers, minutes and materials.
+          correct: true
+      correction: |
+        That’s not right! Events of every type can have restrictions.
+    - body: |
+        My event lasts for a week. How do I set time-slots for >1 days?
+      items:
+        - text: Create a Conference instead
+          correct: true
+        - text: Use your Outlook calendar instead
+        - text: Open a ticket on ServiceNow
+      correction: |
+        That’s not right! You should choose a Conference whenever your event is longer than a couple of days and/or
+        has parallel sessions.
+Conferences - Basic Functionality:
+  duration: 10 mins
+  contents:
+    - Conferences/Introduction
+    - Conferences/Customizing the Conference Menu
+    - Conferences/Customizing the Conference Page Layout
+Conferences - Abstract Reviewing:
+  duration: 15 mins
+  contents:
+    - Conferences/Defining the Programme
+    - Conferences/Call for Abstracts
+    - Conferences/Submitting an Abstract
+    - Conferences/Reviewing Abstracts
+  quiz:
+    - body: |
+        What is a "track" in Indico?
+      items:
+        - text: A theme or subject matter which is part of an Indico Conference programme and which can be used to
+                classify abstracts
+          correct: true
+        - text: A level of approval of an abstract
+        - text: A song which will play whenever you submit an abstract
+      correction: |
+        That’s not right! Tracks represent the subject matter of the Conference.
+    - body: |
+        Who decides when abstracts can be submitted?
+      items:
+        - text: Myself, abstracts are submitted by email
+        - text: The event manager, who sets the opening date
+          correct: true
+        - text: No one. It's a random process.
+      correction: |
+        That’s not right! Abstract submission is enabled by the event manager, who sets the opening date.
+        Once submission is open, abstracts are submitted through Indico.
+    - body: |
+        How do I know whether my Abstract was successfully submitted?
+      num_selections: 2
+      items:
+        - text: I can see it from the Indico event
+          correct: true
+        - text:
+          correct: I won't know till 4 weeks before the conference
+        - text: I will get a notification via e-mail
+          correct: true
+      correction: |
+        That’s not right! When an abstract is successfully submitted the submitter will be informed by email. They can
+        also check the submission status from the Indico event.
+Conferences - Registration Forms:
+  duration: 15 mins
+  contents:
+    - Conferences/Configuring the Registration Process
+    - Conferences/Registering at a Conference
+  quiz:
+    - body: |
+        My conference is free-of-charge. Do I need to configure payment anyway?
+      items:
+        - text: "Yes"
+        - text: "No"
+          correct: true
+      correction: |
+        That’s not right! Payment configuration is actually optional.
+    - body: |
+        How do I control who can register at my conference?
+      items:
+        - text: There's no way to do that
+        - text: Only people from CERN can register at conferences
+        - text: I can set the registration form as <em>Moderated</em>
+          correct: true
+        - text: I should expect an e-mail in addition to online registration
+      correction: |
+        That’s not right! Setting the registration form to <em>Moderated</em> will allow the manager has to approve
+        all registrations beforehand
+    - body: |
+        How can you invite selected participants to an upcoming event?
+      items:
+        - text: I have to advertise the event on a Facebook group
+        - text: There is an invitation workflow in Indico, which I can use to invite people
+          correct: true
+        - text: I should e-mail the whole CERN with an invitation
+      correction: |
+        That's not correct. Indico has an "invitation" workflow which allow participants to be invited on an individual
+        basis
+Room Booking:
+  duration: 20 mins
+  quiz:
+    - body: Can I book the same room for a whole year?
+      items:
+          - text: |
+              In principle, yes, but you will be prompted to cancel individual reservation occurrences if you
+              don't actually use it
+            correct: true
+          - text: |
+              No, there's a clear lack of meeting rooms at CERN, so booking rooms for more than 1 week is forbidden
+          - text: Only if the room has no owner
+      correction: |
+        That's not right. Rooms can be booked for long periods, but you will get a notification to cancel individual
+        occurrences in case you don't use it. You should be mindful of the usage of meeting rooms, however.
+    - body: I absolutely need a given room, which is taken. Can I override the other person's booking?
+      items:
+        - text: Yes, as long as I am their (direct or indirect) supervisor
+        - text: Yes, as long as I'm in a higher career grade
+        - text:
+            No, you have to "negotiate" with the person offline and ask them to cancel their booking
+          correct: true
+        - text: No, once a room is booked, there's no way back
+      correction: |
+        That's not right! Bookings can be canceled by their owner and by the managers of the room. You will have to
+        "negotiate" with them offline, however.
+Event Surveys:
+  duration: 15 mins
+  quiz:
+    - body: Can I create a <em>Survey</em> without association to an event?
+      items:
+        - text: "Yes"
+        - text: "No"
+          correct: true
+      correction: That's incorrect. Surveys can only exist in the context of an event.
+    - body: Which of those are survey field types which Indico offers?
+      num_selections: 3
+      items:
+        - text: Number Input
+          correct: true
+        - text: Text Input
+          correct: true
+        - text: Passport Scan
+        - text: Social media handle
+        - text: Multiple selection
+          correct: true
+      correction: |
+        Incorrect! Out of those, "Number Input", "Text Input" and "Multiple selection" are provided by Indico.
+Webcast/Recording:
+  contents:
+    - Other features/Webcast/Recording Requests
+  duration: 15 mins
+  quiz:
+    - body: How do I request a recording for my Conference or Meeting?
+      items:
+        - text: Make the request under the <em>Services &rarr; Logistics</em> tab
+          correct: true
+        - text: Send an e-mail to the recording service
+      correction: |
+        That's not right! You need to use Indico in order to make a recording request.
+    - body: I asked for recording but the link to the video never showed up on my event page. Why?
+      items:
+        - text: I forgot to make the event fully public.
+        - text: Someone must have forgotten to sign the <em>Speaker Release Form</em>
+          correct: true
+      correction: |
+        That's not right. In order to have you recording published, you need first to have the consent of all
+        speakers. Double-check that they all signed their release forms.

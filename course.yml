@@ -199,23 +199,3 @@ Event Surveys:
           correct: true
       correction: |
         Incorrect! Out of those, "Number Input", "Text Input" and "Multiple selection" are provided by Indico.
-Webcast/Recording:
-  contents:
-    - Other features/Webcast/Recording Requests
-  duration: 15 mins
-  quiz:
-    - body: How do I request a recording for my Conference or Meeting?
-      items:
-        - text: Make the request under the <em>Services &rarr; Logistics</em> tab
-          correct: true
-        - text: Send an e-mail to the recording service
-      correction: |
-        That's not right! You need to use Indico in order to make a recording request.
-    - body: I asked for recording but the link to the video never showed up on my event page. Why?
-      items:
-        - text: I forgot to make the event fully public.
-        - text: Someone must have forgotten to sign the <em>Speaker Release Form</em>
-          correct: true
-      correction: |
-        That's not right. In order to have you recording published, you need first to have the consent of all
-        speakers. Double-check that they all signed their release forms.

@@ -1,3 +1,4 @@
 [submodule "indico-user-docs"]
 	path = indico-user-docs
-	url = https://github.com/indico/indico-user-docs.git
+	url = ssh://git@gitlab.cern.ch:7999/indico/indico-user-docs-cern.git
+	branch = cern

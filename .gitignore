@@ -5,7 +5,7 @@ src/extensions
 src/less
 src/less/adapt.less
 src/plugins.js
-src/course/en/images
+src/course/en/images/docs
 src/course/en/articles.json
 src/course/en/blocks.json
 src/course/en/components.json

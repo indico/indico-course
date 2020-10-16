@@ -41,7 +41,7 @@ def _find_strings(prefix, item):
         yield (prefix, item)
     elif isinstance(item, dict):
         for name, i in item.items():
-            for n, i in _find_strings(f"{prefix}/{name}", i):
+            for n, i in _find_strings(name, i):
                 yield (n, i)
     else:
         yield from itertools.chain.from_iterable(_find_strings(prefix, i) for i in item)
@@ -114,7 +114,7 @@ def make_block(idx, block_name, article_name):
 def make_component(idx, block_name):
     suf = block_name.replace(" ", "-") + "-" + str(idx)
     c_id = "c-" + suf
-    b_id = "b-" + suf
+    b_id = f"b-{suf}"
     return {
         "_id": c_id,
         "_parentId": b_id,
@@ -185,14 +185,6 @@ def create_content_object(adapt_dir, md_dir, co_name, metadata):
             if blocks:
                 cur_bid = blocks[-1]["_trackingId"] + 1
 
-    md_files = {}
-    for name in metadata.get("contents", [co_name]):
-        files = _find_md_files(md_yaml["nav"], name)
-        if not files:
-            click.echo(click.style(f"Couldn't find {name}", fg='red'), err=True)
-            continue
-        md_files.update(files)
-
     click.echo(click.style("\U0001f4e6 Adding content object: " + co_name, fg='green'))
     patch_json(make_content_obj(co_name, metadata), co_file)
 
@@ -200,13 +192,29 @@ def create_content_object(adapt_dir, md_dir, co_name, metadata):
     click.echo(click.style("\U0001f4dd Adding article: " + article_name, fg='green'))
     patch_json(make_article(article_name, co_name), article_file)
 
-    for block_name, md_relpath in md_files.items():
-        md_path = os.path.join(md_dir, "docs", md_relpath)
-        with open(md_path, "r") as f:
-            md_block = f.read()
+    md_content = {}
+    contents = metadata.get("contents")
+    files = contents.get("files")
+    if files:
+        for name in files:
+            md_files = _find_md_files(md_yaml["nav"], name)
+            if not md_files:
+                click.echo(click.style(f"Couldn't find {name}", fg='red'), err=True)
+                continue
+            for block_name, rel_path in md_files:
+                path = os.path.join(md_dir, "docs", rel_path)
+                with open(path, "r") as f:
+                    md_content[block_name] = f.read()
+    else:
+        md = contents.get("markdown")
+        if not md:
+            raise Exception(f"Section {co_name} has no contents")
+        for block in md:
+            md_content[block['title']] = block['content']
 
+    for block_name, md_block in md_content.items():
         click.echo(click.style("\U0001f36a Adding block: " + block_name, fg='green'))
-        md_block = md_block.replace("../assets/", "course/en/images/")
+        md_block = md_block.replace("../assets/", "course/en/images/docs/")
         block_lines = md_block.strip().split("\n")
         first_line = block_lines[0].strip()
         if first_line.startswith("# "):

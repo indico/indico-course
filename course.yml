@@ -1,5 +1,44 @@
+Introduction:
+  duration: 5 mins
+  contents:
+    markdown:
+      - title: About Indico
+        content: |
+          <img src="/course/en/images/logo_indico.png" style="width: 400px; min-width: 0;">
+
+          Indico is a general-purpose event management tool which provides event organizers with lots of tools to
+          manage their events, as well as many other things.
+          We can split Indico's feature set in three groups:
+
+             * **Meeting Management** - a complete solution for agenda creation and sharing of material and
+               video-conferencing resources;
+             * **Conference Management** - feature-rich workflows which address the main tasks in Conference Management,
+               from registration to peer reviewing and paper editing, as well as abstract submission and reviewing;
+             * **Room Booking** - Indico includes a modern and highly-versatile Room Booking system;
+
+          **CERN** is the main organization behind Indico and also the home of the biggest known Indico server, with
+          [more than 700.000 events](https://indico.cern.ch/category/0/statistics) currently hosted in it.
+
+          ![](/course/en/images/preview_rb.png)
+
+          ### Open Source
+
+          Indico is [**Open Source**](https://en.wikipedia.org/wiki/Open_source), which means that its
+          [source code](https://github.com/indico/indico) is available for anyone in the world to read, play with and
+          improve. Anyone can set up their own Indico server, and that's exactly what more than 300 institutions world
+          wide have done.
+
+          Indico is used not only by the likes of Fermilab, BNL and SLAC - there now are instances spread across
+          organizations as diverse as the United Nations, the GNOME Foundation and ECMWF. It is now a software
+          project which transcends the borders of CERN and attracts the contributions of software developers world
+          wide.
+
+          ![](/course/en/images/preview_badges.png)
 Categories:
   duration: 15 mins
+  contents:
+    files:
+      - Categories
   quiz:
     - body: |
         Can one <em>create a new category</em> at the level of Indico entry point
@@ -48,8 +87,14 @@ Categories:
         can do that yourself. Still do feel free to contact our support line if you have questions, however.
 Lectures:
   duration: 15 mins
+  contents:
+    files:
+      - Lectures
 Meetings:
   duration: 20 mins
+  contents:
+    files:
+      - Meetings
   quiz:
     - body: |
         How do I decide whether my new event should be a Meeting?
@@ -72,16 +117,18 @@ Meetings:
 Conferences - Basic Functionality:
   duration: 10 mins
   contents:
-    - Conferences/Introduction
-    - Conferences/Customizing the Conference Menu
-    - Conferences/Customizing the Conference Page Layout
+    files:
+      - Conferences/Introduction
+      - Conferences/Customizing the Conference Menu
+      - Conferences/Customizing the Conference Page Layout
 Conferences - Abstract Reviewing:
   duration: 15 mins
   contents:
-    - Conferences/Defining the Programme
-    - Conferences/Call for Abstracts
-    - Conferences/Submitting an Abstract
-    - Conferences/Reviewing Abstracts
+    files:
+      - Conferences/Defining the Programme
+      - Conferences/Call for Abstracts
+      - Conferences/Submitting an Abstract
+      - Conferences/Reviewing Abstracts
   quiz:
     - body: |
         What is a "track" in Indico?
@@ -119,8 +166,9 @@ Conferences - Abstract Reviewing:
 Conferences - Registration Forms:
   duration: 15 mins
   contents:
-    - Conferences/Configuring the Registration Process
-    - Conferences/Registering at a Conference
+    files:
+      - Conferences/Configuring the Registration Process
+      - Conferences/Registering at a Conference
   quiz:
     - body: |
         My conference is free-of-charge. Do I need to configure payment anyway?
@@ -153,6 +201,9 @@ Conferences - Registration Forms:
         basis
 Room Booking:
   duration: 20 mins
+  contents:
+    files:
+      - Room Booking
   quiz:
     - body: Can I book the same room for a whole year?
       items:
@@ -179,6 +230,9 @@ Room Booking:
         "negotiate" with them offline, however.
 Event Surveys:
   duration: 15 mins
+  contents:
+    files:
+      - Event Surveys
   quiz:
     - body: Can I create a <em>Survey</em> without association to an event?
       items:
@@ -199,23 +253,3 @@ Event Surveys:
           correct: true
       correction: |
         Incorrect! Out of those, "Number Input", "Text Input" and "Multiple selection" are provided by Indico.
-Webcast/Recording:
-  contents:
-    - Other features/Webcast/Recording Requests
-  duration: 15 mins
-  quiz:
-    - body: How do I request a recording for my Conference or Meeting?
-      items:
-        - text: Make the request under the <em>Services &rarr; Logistics</em> tab
-          correct: true
-        - text: Send an e-mail to the recording service
-      correction: |
-        That's not right! You need to use Indico in order to make a recording request.
-    - body: I asked for recording but the link to the video never showed up on my event page. Why?
-      items:
-        - text: I forgot to make the event fully public.
-        - text: Someone must have forgotten to sign the <em>Speaker Release Form</em>
-          correct: true
-      correction: |
-        That's not right. In order to have you recording published, you need first to have the consent of all
-        speakers. Double-check that they all signed their release forms.

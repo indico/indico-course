@@ -4,7 +4,7 @@ Introduction:
     markdown:
       - title: About Indico
         content: |
-          <img src="/course/en/images/logo_indico.png" style="width: 400px; min-width: 0;">
+          <img src="course/en/images/logo_indico.png" style="width: 400px; min-width: 0;">
 
           Indico is a general-purpose event management tool which provides event organizers with lots of tools to
           manage their events, as well as many other things.
@@ -19,7 +19,7 @@ Introduction:
           **CERN** is the main organization behind Indico and also the home of the biggest known Indico server, with
           [more than 700.000 events](https://indico.cern.ch/category/0/statistics) currently hosted in it.
 
-          ![](/course/en/images/preview_rb.png)
+          ![](course/en/images/preview_rb.png)
 
           ### Open Source
 
@@ -33,7 +33,7 @@ Introduction:
           project which transcends the borders of CERN and attracts the contributions of software developers world
           wide.
 
-          ![](/course/en/images/preview_badges.png)
+          ![](course/en/images/preview_badges.png)
 Categories:
   duration: 15 mins
   contents:

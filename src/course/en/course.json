@@ -6,7 +6,7 @@
   "title": "Indico Course",
   "displayTitle": "Indico Course",
   "description": "A course demonstrating the capabilities of Indico",
-  "body": "Welcome to Indico online course. Feel free to pick the module(s) that you need now. You’ll need 20 minutes on average to go through each module. There are a couple of quiz questions at the end to confirm understanding. Enjoy Indico’s rich functionality!",
+  "body": "Welcome to the <strong>Indico online course</strong>. Feel free to pick the module(s) you want to learn about. You’ll need 15-20 minutes on average to go through each module, but feel free to do it at your own pace!<br><br>At end of each section, there are a few quiz questions, just for your self-evaluation.<br>Enjoy!",
   "instruction": "",
   "_buttons": {
     "_submit": {

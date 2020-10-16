@@ -5,7 +5,7 @@ git submodule init
 git submodule update
 
 # Copy images
-cp -R indico-user-docs/docs/assets src/course/en/images
+cp -R indico-user-docs/docs/assets src/course/en/images/docs
 
 # Convert docs to adapt
 python md_to_adapt.py course.yml --replace indico-user-docs .

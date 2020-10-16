@@ -4,8 +4,13 @@ import json
 import itertools
 import os
 import markdown
+import re
 
 ALL_FILES = {"contentObjects.json", "articles.json", "blocks.json", "components.json"}
+
+
+def _sanitize_name(name):
+    return re.sub(r"[^a-zA-z0-9]", "-", name)
 
 
 def _find_item(item_list, path):
@@ -85,8 +90,8 @@ def make_content_obj(co_name, metadata):
 
 def make_article(article_name, co_name):
     return {
-        "_id": "a-" + article_name.replace(" ", "-"),
-        "_parentId": "co-" + co_name.replace(" ", "-"),
+        "_id": "a-" + _sanitize_name(article_name),
+        "_parentId": "co-" + _sanitize_name(co_name),
         "_type": "article",
         "_classes": "",
         "title": None,
@@ -97,7 +102,7 @@ def make_article(article_name, co_name):
 
 
 def make_block(idx, block_name, article_name):
-    b_id = "b-" + block_name.replace(" ", "-") + "-" + str(idx)
+    b_id = "b-" + _sanitize_name(block_name) + "-" + str(idx)
     return {
         "_id": b_id,
         "_parentId": "a-" + article_name.replace(" ", "-"),
@@ -112,7 +117,7 @@ def make_block(idx, block_name, article_name):
 
 
 def make_component(idx, block_name):
-    suf = block_name.replace(" ", "-") + "-" + str(idx)
+    suf = _sanitize_name(block_name) + "-" + str(idx)
     c_id = "c-" + suf
     b_id = f"b-{suf}"
     return {
@@ -185,11 +190,11 @@ def create_content_object(adapt_dir, md_dir, co_name, metadata):
             if blocks:
                 cur_bid = blocks[-1]["_trackingId"] + 1
 
-    click.echo(click.style("\U0001f4e6 Adding content object: " + co_name, fg='green'))
+    click.echo(click.style("\U0001f4e6 Adding content object: " + co_name, fg="green"))
     patch_json(make_content_obj(co_name, metadata), co_file)
 
     article_name = co_name
-    click.echo(click.style("\U0001f4dd Adding article: " + article_name, fg='green'))
+    click.echo(click.style("\U0001f4dd Adding article: " + article_name, fg="green"))
     patch_json(make_article(article_name, co_name), article_file)
 
     md_content = {}
@@ -199,7 +204,7 @@ def create_content_object(adapt_dir, md_dir, co_name, metadata):
         for name in files:
             md_files = _find_md_files(md_yaml["nav"], name)
             if not md_files:
-                click.echo(click.style(f"Couldn't find {name}", fg='red'), err=True)
+                click.echo(click.style(f"Couldn't find {name}", fg="red"), err=True)
                 continue
             for block_name, rel_path in md_files:
                 path = os.path.join(md_dir, "docs", rel_path)
@@ -210,10 +215,10 @@ def create_content_object(adapt_dir, md_dir, co_name, metadata):
         if not md:
             raise Exception(f"Section {co_name} has no contents")
         for block in md:
-            md_content[block['title']] = block['content']
+            md_content[block["title"]] = block["content"]
 
     for block_name, md_block in md_content.items():
-        click.echo(click.style("\U0001f36a Adding block: " + block_name, fg='green'))
+        click.echo(click.style("\U0001f36a Adding block: " + block_name, fg="green"))
         md_block = md_block.replace("../assets/", "course/en/images/docs/")
         block_lines = md_block.strip().split("\n")
         first_line = block_lines[0].strip()
@@ -241,7 +246,7 @@ def create_content_object(adapt_dir, md_dir, co_name, metadata):
 
 
 @click.command()
-@click.argument("course_file", type=click.File('r'))
+@click.argument("course_file", type=click.File("r"))
 @click.argument("md_dir", type=click.Path(exists=True))
 @click.argument("adapt_dir", type=click.Path(exists=True))
 @click.option("-r", "--replace", is_flag=True, help="Replace existing contents")
@@ -258,5 +263,5 @@ def md_to_adapt(course_file, md_dir, adapt_dir, replace):
         create_content_object(adapt_dir, md_dir, co_name, metadata)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     md_to_adapt()

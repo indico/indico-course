@@ -18,4 +18,4 @@ npx grunt build
 cd indico-user-docs
 export COURSE_HASH=$(git rev-parse --short HEAD)
 cd ../build
-zip indico-course-$(date "+%Y%m%d")-${COURSE_HASH}.zip *
+zip -r indico-course-$(date "+%Y%m%d")-${COURSE_HASH}.zip *

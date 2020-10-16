@@ -9,8 +9,6 @@ build-course:
     - git config --file=.gitmodules submodule.indico-user-docs.url https://gitlab-ci-token:$CI_JOB_TOKEN@gitlab.cern.ch/indico/indico-user-docs-cern.git
   script:
     - ./build.sh
-    - cd indico-user-docs && export COURSE_HASH=$(git rev-parse --short HEAD) && cd ..
-    - cd build && zip indico-course-${COURSE_HASH}.zip *
   artifacts:
     paths:
       - build/indico-course-*.zip

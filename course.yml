@@ -85,16 +85,21 @@ Categories:
       correction: |
         No need for that! Category managers can personalize their categories from the category management page, so you
         can do that yourself. Still do feel free to contact our support line if you have questions, however.
+Event Management:
+  duration: 15 mins
+  contents:
+    files:
+      - Event Management/Introduction to Events
 Lectures:
   duration: 15 mins
   contents:
     files:
-      - Lectures
+      - Event Management/Lectures
 Meetings:
   duration: 20 mins
   contents:
     files:
-      - Meetings
+      - Event Management/Meetings
   quiz:
     - body: |
         How do I decide whether my new event should be a Meeting?
@@ -118,17 +123,17 @@ Conferences - Basic Functionality:
   duration: 10 mins
   contents:
     files:
-      - Conferences/Introduction
-      - Conferences/Customizing the Conference Menu
-      - Conferences/Customizing the Conference Page Layout
+      - Event Management/Conferences/Introduction
+      - Event Management/Conferences/Customizing the Conference Menu
+      - Event Management/Conferences/Customizing the Conference Page Layout
 Conferences - Abstract Reviewing:
   duration: 15 mins
   contents:
     files:
-      - Conferences/Defining the Programme
-      - Conferences/Call for Abstracts
-      - Conferences/Submitting an Abstract
-      - Conferences/Reviewing Abstracts
+      - Event Management/Conferences/Defining the Programme
+      - Event Management/Conferences/Call for Abstracts
+      - Event Management/Conferences/Submitting an Abstract
+      - Event Management/Conferences/Reviewing Abstracts
   quiz:
     - body: |
         What is a "track" in Indico?
@@ -167,8 +172,8 @@ Conferences - Registration Forms:
   duration: 15 mins
   contents:
     files:
-      - Conferences/Configuring the Registration Process
-      - Conferences/Registering at a Conference
+      - Event Management/Conferences/Configuring the Registration Process
+      - Event Management/Conferences/Registering at a Conference
   quiz:
     - body: |
         My conference is free-of-charge. Do I need to configure payment anyway?

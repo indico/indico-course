@@ -41,12 +41,12 @@ Categories:
       - Categories
   quiz:
     - body: |
-        Can one <em>create a new category</em> at the level of Indico entry point
-        <a href='https://indico.cern.ch/'>https://indico.cern.ch/</a>?
+       Can you create a new category at the root (home page) of an Indico server?
       items:
-        - text: "Yes"
-        - text: "No"
+        - text: "Yes, Indico categories are public"
+        - text: "Yes, but only if you have permission to do so"
           correct: true
+        - text: "No"
       correction: |
         That’s not right! One would have to click on the pencil icon in the toolbar next to the
         <strong>Create Event<strong> button first.
@@ -105,9 +105,9 @@ Meetings:
       correction: |
         That’s not right! Events of every type can have restrictions.
     - body: |
-        My event lasts for a week. How do I set time-slots for >1 days?
+        My event lasts for more than a week. I should:
       items:
-        - text: Create a Conference instead
+        - text: Consider creating a Conference instead
           correct: true
         - text: Use your Outlook calendar instead
         - text: Open a ticket on ServiceNow
@@ -156,8 +156,8 @@ Conferences - Abstract Reviewing:
       items:
         - text: I can see it from the Indico event
           correct: true
-        - text:
-          correct: I won't know till 4 weeks before the conference
+        - text: I won't know till 4 weeks before the conference
+          correct: false
         - text: I will get a notification via e-mail
           correct: true
       correction: |

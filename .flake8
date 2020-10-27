@@ -1,0 +1,18 @@
+[flake8]
+max-line-length = 120
+
+# colored output
+format = ${cyan}%(path)s${reset}:${yellow_bold}%(row)d${reset}:${green_bold}%(col)d${reset}: ${red_bold}%(code)s${reset} %(text)s
+
+inline-quotes = single
+multiline-quotes = single
+docstring-quotes = double
+avoid-escape = true
+
+exclude =
+    build
+    node_modules
+    .*/
+    # TODO: remove the next two entries and use extend-exclude once flake8 3.8.0 is out
+    .git
+    __pycache__

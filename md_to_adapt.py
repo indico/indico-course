@@ -1,12 +1,35 @@
-import click
-import yaml
-import json
 import itertools
 import os
-import markdown
 import re
+import xml.etree.ElementTree as etree
+
+import click
+import json
+import markdown
+import yaml
+from markdown.extensions import Extension
+from markdown.inlinepatterns import InlineProcessor
+
 
 ALL_FILES = {"contentObjects.json", "articles.json", "blocks.json", "components.json"}
+
+
+class LinkPattern(InlineProcessor):
+    """An inline processor which removes relative links."""
+    def handleMatch(self, m, data):
+        if m.group(2).startswith('http'):
+            return (None, None, None)
+        text = m.group(1)
+        el = etree.Element("span")
+        el.text = text
+        return el, m.start(0), m.end(0)
+
+
+class LinkExtension(Extension):
+    def extendMarkdown(self, md):
+        # negative lookbehind on '!' to make sure we don't catch images by accident
+        LINK_PATTERN = r'(?<!\!)\[([^\]]+)\]\(([^\)]+)\)'
+        md.inlinePatterns.register(LinkPattern(LINK_PATTERN, md), 'link_sanitizer', 1000)
 
 
 def _sanitize_name(name):
@@ -227,7 +250,7 @@ def create_content_object(adapt_dir, md_dir, co_name, metadata):
         patch_json(make_block(cur_bid, block_name, article_name), block_file)
 
         component = make_component(cur_bid, block_name)
-        component["body"] = markdown.markdown(md_block, extensions=["admonition"])
+        component["body"] = markdown.markdown(md_block, extensions=["admonition", "__main__:LinkExtension"])
         patch_json(component, component_file)
 
         cur_bid += 1

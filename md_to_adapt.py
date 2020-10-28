@@ -1,3 +1,10 @@
+# Copyright (C) 2020 CERN
+#
+# This is free software; you can redistribute it and/or
+# modify it under the terms of the MIT License; see the
+# LICENSE file for more details.
+
+
 import itertools
 import os
 import re

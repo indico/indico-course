@@ -34,6 +34,7 @@ jobs:
 
       - name: Deploy pages
         uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'ref/head/master' }}
         with:
           user_name: Indico Team
           user_email: indico-team@cern.ch
